@@ -1,0 +1,47 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    //Screen Device
+    if(null!=input.getRequestEnvelope().getContext().getDisplay()) {
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            
+            TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
+    //Screen Device
+    if(null!=input.getRequestEnvelope().getContext().getDisplay()) {
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            
+            TypeReference<HashMap<String, Object>> documentMapType = new TypeReference<HashMap<String, Object>>() {};
+    "theme": "dark",
+    "import": [],
+    "resources": [],
+    "styles": {},
+    "layouts": {},
+    "mainTemplate": {
+        "items": [
+            {
+                "type": "Frame",
+                "backgroundColor": "grey",
+                "item": {
+                    "type": "Container",
+                    "height": "100vh",
+                    "width": "100vw",
+                    "direction": "column",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "items": [
+                        {
+                            "type": "Text",
+                            "text": "Nutrición Inteligente"
+                        },
+                        {
+                            "type": "Text",
+                            "text": "¡Bienvenidos!"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

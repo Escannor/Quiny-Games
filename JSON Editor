@@ -1,0 +1,217 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "juegos matematicos",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "salir",
+                        "termina la skill",
+                        "cancela la skill",
+                        "acaba",
+                        "cancela"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "dime los modos de juego",
+                        "dame opciones",
+                        "ayudame",
+                        "que puedo hacer",
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "pausa quiny games",
+                        "pausa la skill",
+                        "pausa",
+                        "deten la skill"
+                    ]
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "how are you",
+                        "say hi world",
+                        "say hi",
+                        "hi",
+                        "say hello world",
+                        "say hello"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RelampagoIntent",
+                    "slots": [
+                        {
+                            "name": "respuestaS",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "rondasS",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "unas {rondasS}",
+                                "{rondasS}",
+                                "que sean {rondasS}"
+                            ]
+                        },
+                        {
+                            "name": "participantesS",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "somos {participantesS}",
+                                "participaremos {participantesS}",
+                                "{participantesS}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "abre un juego relampago con {rondasS} rondas",
+                        "abre un juego relampago con {participantesS} participantes",
+                        "crea un juego relampago con {rondasS} rondas",
+                        "crea un juego relampago con {participantesS} participantes",
+                        "crea un juego relampago",
+                        "inicia relampago",
+                        "abre relampago"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "RelampagoIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "respuestaS",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "rondasS",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.18311094224.47714912921"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isGreaterThanOrEqualTo",
+                                    "prompt": "Slot.Validation.18311094224.47714912921.855290835239",
+                                    "value": "5"
+                                },
+                                {
+                                    "type": "isLessThanOrEqualTo",
+                                    "prompt": "Slot.Validation.18311094224.47714912921.987213175962",
+                                    "value": "25"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "participantesS",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.446039155378.826102459689"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isGreaterThanOrEqualTo",
+                                    "prompt": "Slot.Validation.1068021785287.964915147267.467251718060",
+                                    "value": "1"
+                                },
+                                {
+                                    "type": "isLessThanOrEqualTo",
+                                    "prompt": "Slot.Validation.743722478403.903033250320.1195145949140",
+                                    "value": "25"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.18311094224.47714912921.855290835239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Son muy pocas rondas... Dame un numero mas alto"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.18311094224.47714912921.987213175962",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Wow... son muchas rondas, dame un numero mas bajo"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.18311094224.47714912921",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Cuantas rondas quieres que sean?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "¿Cuantas rondas deseas que sean?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.446039155378.826102459689",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Cuantas personas juegan?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "¿Cuantos participan?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1068021785287.964915147267.467251718060",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Son muy pocos participantes... Me puedes dar un numero mas grande?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.743722478403.903033250320.1195145949140",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ups, son muchos participantes... tardaria mucho el juego, dime un numero mas bajo"
+                    }
+                ]
+            }
+        ]
+    }
+}
